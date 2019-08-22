@@ -11,7 +11,7 @@ const LabelWithIcon: React.FC<{
   return (
     <div>
       {icon}
-      <Typography variant="">{label}</Typography>
+      <Typography>{label}</Typography>
     </div>
   );
 };
