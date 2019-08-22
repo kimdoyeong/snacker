@@ -8,17 +8,20 @@ import SignUpIcon from "@material-ui/icons/AssignmentIndOutlined";
 import Router from "next/router";
 const items = [
   {
-    onClick: () => {
-      Router.push("/signup");
+    onClick(setOpen: Function) {
+      return () => {
+        setOpen(false);
+        Router.push("/signup");
+      };
     },
     text: "회원가입",
     icon: SignUpIcon
   }
 ];
-const MenuList: React.FC = () => (
+const MenuList: React.FC<{ setOpen: Function }> = ({ setOpen }) => (
   <List>
     {items.map(({ onClick, text, icon: Icon }, i) => (
-      <ListItem button key={i} onClick={onClick}>
+      <ListItem button key={i} onClick={onClick(setOpen)}>
         <ListItemIcon>
           <Icon />
         </ListItemIcon>

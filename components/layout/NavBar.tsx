@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import style from "./NavBar.module.scss";
+import Link from "next/link";
 
 import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
@@ -33,9 +34,13 @@ const NavBar: React.FC = () => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            Snacker
-          </Typography>
+          <Link href="/">
+            <div className={style.brand}>
+              <Typography variant="h6" noWrap>
+                Snacker
+              </Typography>
+            </div>
+          </Link>
         </Toolbar>
       </AppBar>
       <Drawer variant="persistent" anchor="left" open={open}>
@@ -44,7 +49,7 @@ const NavBar: React.FC = () => {
             <ChevronLeftIcon />
           </IconButton>
         </div>
-        <MenuList />
+        <MenuList setOpen={setOpen} />
       </Drawer>
     </>
   );

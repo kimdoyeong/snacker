@@ -1,13 +1,15 @@
 import React from "react";
 import { NextPage } from "next";
-import Head from "next/head";
+import Contents from "../components/ui/Contents";
+import { MarketListComponent } from "../components/market/MarketList";
+import SEO from "../components/ui/SEO";
 
 const Home: NextPage = () => (
   <div>
-    <Head>
-      <title>Home</title>
-    </Head>
-    Hello world!
+    <SEO title="주전부리 마켓" />
+    <Contents>
+      <MarketListComponent />
+    </Contents>
   </div>
 );
 
